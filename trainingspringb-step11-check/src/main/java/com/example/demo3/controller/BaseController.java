@@ -10,20 +10,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.demo3.model.Person;
 
 @Controller
-public class BaseController{
+public class BaseController {
 
-    @GetMapping("/")
-    public String home(@ModelAttribute Person person) {
-      return "form";
-    }
+	@GetMapping("/")
+	public String home(@ModelAttribute Person person) {
+		return "form";
+	}
 
-    @PostMapping("/form")
-    public String result(@Validated
-                        @ModelAttribute Person person,
-                        BindingResult result){
-        if(result.hasErrors()){
-            return "form";
-        }
-        return "result";
-    }
+	@PostMapping("/form")
+	public String result(@Validated @ModelAttribute Person person,
+			BindingResult result) {
+		if (result.hasErrors()) {
+			return "form";
+		}
+		return "result";
+	}
 }
